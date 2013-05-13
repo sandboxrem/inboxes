@@ -36,7 +36,11 @@ class Discussion < ActiveRecord::Base
   end
 
   def recipient_tokens=(ids)
-    self.recipient_ids = ids
+    if ids.is_a?(Array)
+      self.recipient_ids = ids
+    elsif ids.is_a?(String)
+      self.recipient_ids = ids.split(",")
+    end
   end
 
   def add_recipient_token id
