@@ -1,7 +1,4 @@
 class Message < ActiveRecord::Base
-  
-  attr_accessible :body, :user, :discussion
-
   default_scope {
     order(:created_at)
   }
