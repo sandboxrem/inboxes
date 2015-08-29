@@ -2,7 +2,9 @@ class Message < ActiveRecord::Base
   
   attr_accessible :body, :user, :discussion
 
-  default_scope order(:created_at)
+  default_scope {
+    order(:created_at)
+  }
 
   belongs_to :discussion, :counter_cache => true, :touch => true
   belongs_to :user
