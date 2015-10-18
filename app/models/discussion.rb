@@ -104,7 +104,7 @@ class Discussion < ActiveRecord::Base
   end
 
   def mark_as_read_for(user)
-    speaker = Speaker.find_or_create_by_user_id_and_discussion_id(user.id, self.id)
+    speaker = Speaker.find_or_create_by(user_id: user.id, discussion_id: self.id)
     speaker.touch
   end
 
