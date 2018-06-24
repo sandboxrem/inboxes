@@ -1,6 +1,6 @@
 class Inboxes::DiscussionsController < Inboxes::BaseController
   load_and_authorize_resource
-  before_filter :load_and_check_discussion_recipient, :only => [:create, :new]
+  before_action :load_and_check_discussion_recipient, :only => [:create, :new]
 
   def index
     @discussions = current_user.discussions
